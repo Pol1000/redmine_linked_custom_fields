@@ -49,6 +49,13 @@ end
     end
 
 
+
+ def update_form_issue1
+   @filtered_custom =LinkedCustomFields.find(:all, :conditions => {:tipologia => params[:type_id]})
+     render :layout => false
+ end
+
+
   def gestione
      respond_to do |format|
         format.html { render :template => 'linked_custom_fields/elenco_valori', :layout => !request.xhr? }
