@@ -1,4 +1,5 @@
 require 'redmine'
+require 'linked_fields_hooks'
 
 Redmine::Plugin.register :redmine_linked_custom_fields do
   name 'Redmine Linked Custom Fields plugin'
