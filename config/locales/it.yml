@@ -11,3 +11,5 @@ it:
  label_delete: "elimina"
  text_are_you_sure: "Eliminare l'elemento?"
  notice_successful_update: "Salvataggio effettuato con successo"
+ field_linked_custom: "Valore"
+ field_type_id: "Tipo"
