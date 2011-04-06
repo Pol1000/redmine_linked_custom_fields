@@ -1,0 +1,13 @@
+it:
+ label_create_type_new: "nuova tipologia"
+ label_create_custom_new: "nuovo valore"
+ button_create: "Salva"
+ label_type: "Tipologia"
+ label_descrizione: "Descrizione"
+ label_riferimento: "Riferimento"
+ label_valore: "Valore"
+ label_parent: "Padre"
+ label_edit: "modifica"
+ label_delete: "elimina"
+ text_are_you_sure: "Eliminare l'elemento?"
+ notice_successful_update: "Salvataggio effettuato con successo"

@@ -1,0 +1,17 @@
+<%= error_messages_for 'custom' %>
+
+<div class="box">
+ <p>
+   <label><%=l(:label_type) %></label>
+	 <%= select_tag('custom[tipologia]',content_tag('option', l(:label_nobody), :value => 'none') +
+                                   options_from_collection_for_select(TypeCustomFields.findAll, :id, :descrizione, @types), :required => true) %>			
+ </p>
+ <p>
+   <label><%= l(:label_parent) %></label>
+	 <%= select_tag('custom[figlia_di]',content_tag('option', l(:label_nobody), :value => '') +
+                                   options_from_collection_for_select(LinkedCustomFields.findAll, :id, :valore, @father)) %>			
+ </p>
+ <p>
+    <%= f.text_field :valore, :label=>l(:label_valore), :required => true-%>
+ </p>
+</div>

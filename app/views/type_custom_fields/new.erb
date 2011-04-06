@@ -1,0 +1,10 @@
+<h2><%=l(:label_type)%></h2>
+
+<% labelled_tabular_form_for :type, @type, :url => {:action => 'create' } do |f| %>
+<%= render :partial => 'form', :locals => { :f => f } %>
+
+
+<%= submit_tag l(:button_create) %>
+<%= link_to l(:button_cancel), :controller => 'type_custom_fields', :action => 'gestione' %>
+
+<% end %>
