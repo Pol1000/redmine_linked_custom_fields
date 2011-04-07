@@ -10,7 +10,7 @@ class LinkedFieldsHooks < Redmine::Hook::ViewListener
         html += observe_field :issue_type_id, :url => {:controller => 'linked_custom_fields', :action => :update_form_issue1},
                                      :update => :primo_select,
                                      :with => :type_id              
-       html += "<div id='primo_select'></div>"
+        html += "<div id='primo_select'></div>"
         html += "</p>"
         html
        

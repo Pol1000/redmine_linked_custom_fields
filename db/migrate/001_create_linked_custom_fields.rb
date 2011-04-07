@@ -1,7 +1,7 @@
 class CreateLinkedCustomFields < ActiveRecord::Migration
   def self.up
     create_table :linked_custom_fields do |t|
-      t.column :tipologia, :integer, :null => false
+      t.column :tipologia, :integer
       t.column :valore, :string, :null => false
       t.column :figlia_di, :integer
    end

@@ -7,10 +7,9 @@
                                    options_from_collection_for_select(TypeCustomFields.findAll, :id, :descrizione, @tipologia.id)) %>			
  </p>
  <p>
- 	<%=observe_field :custom_tipologia, :url => {:controller => 'linked_custom_fields', :action => :filtra_padre_per_categoria},
-                                     :update => :padre,
-                                     :with => :tipologia %>       
-	 <div id='padre'></div>
+   <label><%= l(:label_parent) %></label>
+	 <%= select_tag('custom[figlia_di]',content_tag('option', l(:label_nobody), :value => '') +
+                                   options_from_collection_for_select(LinkedCustomFields.findAll, :id, :valore, @son_of && @son_of.id)) %>			
  </p>
  <p>
     <%= f.text_field :valore, :label=>l(:label_valore), :required => true-%>

@@ -16,7 +16,7 @@
   <p>
   	
   <%@custom_finded=LinkedCustomFields.find(:all, :conditions => {:tipologia => type.id})%>
-  &nbsp;&nbsp;<label>valori per la tipologia:   </label>&nbsp;&nbsp;
+  &nbsp;&nbsp;<label>valori per la tipologia:   </label>;&nbsp;&nbsp;
    
   <% @custom_finded.each do |cust| %>
   <label><%= cust.valore%></label>&nbsp;&nbsp;&nbsp;

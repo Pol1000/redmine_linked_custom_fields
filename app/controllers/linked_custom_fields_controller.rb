@@ -48,10 +48,18 @@ end
     redirect_to :controller => 'linked_custom_fields', :action => 'gestione'
     end
 
-
+ def filtra_padre_per_categoria
+   @filtered_padre = LinkedCustomFields.find(:all, :conditions =>{:tipologia => params[:tipologia]})
+    render :layout => false
+ end
 
  def update_form_issue1
    @filtered_custom =LinkedCustomFields.find(:all, :conditions => {:tipologia => params[:type_id]})
+     render :layout => false
+ end
+ 
+ def update_form_issue2
+   @father_filtered_custom =LinkedCustomFields.find(:all, :conditions => {:figlia_di => params[:linked_custom_id]})
      render :layout => false
  end
 
