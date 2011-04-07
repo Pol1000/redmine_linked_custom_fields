@@ -3,7 +3,7 @@
 <div class="box">
  <p>
    <label><%=l(:label_type) %></label>
-	 <%= select_tag('custom[tipologia]',content_tag('option', l(:label_nobody), :value => 'NULL') +
+	 <%= select_tag('custom[tipologia]',content_tag('option', l(:label_nobody), :value => 'none') +
                                    options_from_collection_for_select(TypeCustomFields.findAll, :id, :descrizione, @tipologia.id)) %>			
  </p>
  <p>

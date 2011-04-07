@@ -49,17 +49,19 @@ end
     end
 
  def filtra_padre_per_categoria
-   @filtered_padre = LinkedCustomFields.find(:all, :conditions =>{:tipologia => params[:tipologia]})
+   @filtered_padre = LinkedCustomFields.find_by_sql("select linked_custom_fields.* 
+                                                         from linked_custom_fields inner join type_custom_fields on linked_custom_fields.tipologia = type_custom_fields.id
+                                                         where (type_custom_fields.id = (select type_custom_fields.figlia_di from type_custom_fields where type_custom_fields.id ="+params[:tipologia]+"))")
     render :layout => false
  end
 
  def update_form_issue1
-   @filtered_custom =LinkedCustomFields.find(:all, :conditions => {:tipologia => params[:type_id]})
+   @filtered_custom =LinkedCustomFields.find(:all, :conditions => {:figlia_di => params[:linked_custom_id1]})
      render :layout => false
  end
  
  def update_form_issue2
-   @father_filtered_custom =LinkedCustomFields.find(:all, :conditions => {:figlia_di => params[:linked_custom_id]})
+   @father_filtered_custom =LinkedCustomFields.find(:all, :conditions => {:figlia_di => params[:linked_custom_id2]})
      render :layout => false
  end
 

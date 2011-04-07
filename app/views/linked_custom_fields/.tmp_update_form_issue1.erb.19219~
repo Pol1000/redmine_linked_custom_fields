@@ -1,7 +1,7 @@
 <% if @filtered_custom.present? %>
 <p>
-  <label><%=l(:field_linked_custom_id2)%></label>
-  <select id="issue_linked_custom_id2" name="issue[linked_custom_id2]">
+  <label><%=l(:label_valore)%></label>
+  <select id="issue_:linked_custom_id2" name="issue[linked_custom_id2]">
      <option value=""><%=l(:label_nobody)%></option> + <%= options_from_collection_for_select(@filtered_custom, :id, :valore) %>
   </select>
   <%=observe_field :issue_linked_custom_id2, :url => {:controller => 'linked_custom_fields', :action => :update_form_issue2},
