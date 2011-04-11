@@ -14,3 +14,6 @@ it:
  field_linked_custom_id1: "Area"
  field_linked_custom_id2: "Applicativo"
  field_linked_custom_id3: "Modulo"
+ field_linked_custom_fields : "Area"
+ field_linked_custom_fields_id2 : "Applicativo"
+ field_linked_custom_fields_id3 : "Modulo"

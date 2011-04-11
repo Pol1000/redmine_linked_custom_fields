@@ -1,5 +1,6 @@
 require 'redmine'
 require 'linked_fields_hooks'
+require 'linked_fields_query_patch'
 
 Redmine::Plugin.register :redmine_linked_custom_fields do
   name 'Redmine Linked Custom Fields plugin'
