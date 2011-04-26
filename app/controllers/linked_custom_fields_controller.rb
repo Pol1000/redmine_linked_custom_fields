@@ -1,5 +1,5 @@
 class LinkedCustomFieldsController < ApplicationController
- before_filter :get_custom_new
+before_filter :get_custom_new , :find_project, :except => [:filtra_padre_per_categoria,:update_form_issue1,:update_form_issue2]
    
     def get_custom_new
   @custom = LinkedCustomFields.new

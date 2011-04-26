@@ -1,7 +1,8 @@
 class TypeCustomFieldsController < ApplicationController
  
   
-  before_filter :get_type_new
+  before_filter :get_type_new , :find_project
+   
    
     def get_type_new
   @type = TypeCustomFields.new

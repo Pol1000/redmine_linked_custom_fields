@@ -6,6 +6,7 @@ it:
  label_descrizione: "Descrizione"
  label_riferimento: "Riferimento"
  label_valore: "Valore"
+ field_valore: "Valore"
  label_parent: "Padre"
  label_edit: "modifica"
  label_delete: "elimina"
@@ -17,3 +18,4 @@ it:
  field_linked_custom_fields : "Area"
  field_linked_custom_fields_id2 : "Applicativo"
  field_linked_custom_fields_id3 : "Modulo"
+ label_fields_list : "Label temporanea"
