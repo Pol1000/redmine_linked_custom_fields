@@ -1,0 +1,8 @@
+<% if @father_filtered_custom.present? %>
+<p>
+	<label><%=l(:field_linked_custom_id3)%></label>
+  <select id="linked_custom_id3" name="issue[linked_custom_id3]">
+     <option value=""><%=l(:label_nobody)%></option> + <%= options_from_collection_for_select(@father_filtered_custom, :id, :valore) %>
+  </select>
+ </p>
+<%end%>

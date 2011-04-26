@@ -3,7 +3,13 @@ class TypeCustomFieldsController < ApplicationController
   
   before_filter :get_type_new , :find_project
    
-   
+    
+  def find_project
+    @project = Project.find(params[:project_id])
+    rescue ActiveRecord::RecordNotFound
+      render_404
+  end
+  
     def get_type_new
   @type = TypeCustomFields.new
     end
@@ -23,7 +29,7 @@ class TypeCustomFieldsController < ApplicationController
      @type = TypeCustomFields.new(params[:type])
       if @type.save
         flash[:notice] = l(:notice_successful_create)
-       redirect_to :controller => 'type_custom_fields', :action => 'gestione'
+       redirect_to :controller => 'type_custom_fields', :action => 'gestione', :project_id => @project
        else
       render :action => 'new'
       end   
@@ -34,7 +40,7 @@ class TypeCustomFieldsController < ApplicationController
     @type = TypeCustomFields.find_by_id(params[:id])
     if request.post? and @type.update_attributes(params[:type])
       flash[:notice] = l(:notice_successful_update)
-      redirect_to :action => "gestione"
+      redirect_to :action => "gestione", :project_id => @project
     else
       render :action => "edit", :id => params[:id]
     end
@@ -54,6 +60,6 @@ class TypeCustomFieldsController < ApplicationController
     else
       flash[:error] = l(:notice_unsuccessful_save)
     end
-    redirect_to :controller => 'type_custom_fields', :action => 'gestione'
+    redirect_to :controller => 'type_custom_fields', :action => 'gestione',  :project_id => @project
     end
 end

@@ -1,7 +1,7 @@
 <%@type=TypeCustomFields.findAll%>
 
 <%= link_to l(:label_create_type_new),
-            {:controller => 'type_custom_fields', :action => 'new',:project_id => @project},
+            {:controller => 'type_custom_fields', :action => 'new'},
                           :class => 'icon icon-add' %>
 
 

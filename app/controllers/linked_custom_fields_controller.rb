@@ -4,7 +4,12 @@ before_filter :get_custom_new , :find_project, :except => [:filtra_padre_per_cat
     def get_custom_new
   @custom = LinkedCustomFields.new
 end
-
+ 
+  def find_project
+    @project = Project.find(params[:project_id])
+    rescue ActiveRecord::RecordNotFound
+      render_404
+  end
 
   def edit
          @edit_custom = LinkedCustomFields.find_by_id(params[:id])
@@ -20,7 +25,7 @@ end
      @custom = LinkedCustomFields.new(params[:custom])
       if @custom.save
         flash[:notice] = l(:notice_successful_create)
-       redirect_to :controller => 'linked_custom_fields', :action => 'gestione'
+       redirect_to :controller => 'linked_custom_fields', :action => 'gestione',  :project_id =>@project
        else
       render :action => 'new'
       end   
@@ -31,7 +36,7 @@ end
     @custom = LinkedCustomFields.find_by_id(params[:id])
     if request.post? and @custom.update_attributes(params[:custom])
       flash[:notice] = l(:notice_successful_update)
-      redirect_to :action => "gestione"
+      redirect_to :action => "gestione", :project_id =>@project
     else
       render :action => "edit", :id => params[:id]
     end
@@ -45,7 +50,7 @@ end
     else
       flash[:error] = l(:notice_unsuccessful_save)
     end
-    redirect_to :controller => 'linked_custom_fields', :action => 'gestione'
+    redirect_to :controller => 'linked_custom_fields', :action => 'gestione', :project_id =>@project
     end
 
  def filtra_padre_per_categoria

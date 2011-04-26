@@ -1,7 +1,7 @@
 <%@type=TypeCustomFields.findAll%>
 
 <%= link_to l(:label_create_type_new),
-            {:controller => 'type_custom_fields', :action => 'new',:project_id => @project},
+            {:controller => 'type_custom_fields', :action => 'new'},
                           :class => 'icon icon-add' %>
 
 
@@ -19,7 +19,7 @@
   
     <%@padre=TypeCustomFields.find_by_id(type.figlia_di)%>
 	<% if @padre.present? %>
-	 <label>figlia di : <%= @padre.descrizione %></label>
+	 <label>figlia di :<%= @padre.descrizione %></label>
 	 <%end%> 
 	 <br>
   &nbsp;&nbsp;<label>valori per la tipologia:   </label>&nbsp;&nbsp;

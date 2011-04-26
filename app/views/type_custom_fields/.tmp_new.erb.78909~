@@ -1,6 +1,6 @@
 <h2><%=l(:label_type)%></h2>
 
-<% labelled_tabular_form_for :type, @type, :url => {:action => 'create', :project_id => @project } do |f| %>
+<% labelled_tabular_form_for :type, @type, :url => {:action => 'create' } do |f| %>
 <%= render :partial => 'form', :locals => { :f => f } %>
 
 

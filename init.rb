@@ -20,7 +20,7 @@ Issue.safe_attributes 'linked_custom_id1', 'linked_custom_id2','linked_custom_id
 
   
   end
-  menu :project_menu, :linked_custom_fields_mod, { :controller => 'linked_custom_fields', :action => 'gestione' }, :caption => 'Valori'
-  menu :project_menu, :type_custom_fields_mod, { :controller => 'type_custom_fields', :action => 'gestione' }, :caption => 'Tipologie'
+  menu :project_menu, :linked_custom_fields_mod, { :controller => 'linked_custom_fields', :action => 'gestione' }, :caption => 'Valori', :param => :project_id
+  menu :project_menu, :type_custom_fields_mod, { :controller => 'type_custom_fields', :action => 'gestione' }, :caption => 'Tipologie', :param => :project_id
 
 end
