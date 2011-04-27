@@ -102,7 +102,7 @@ module LinkedFieldsQueryPatch
         end
         
         # "me" value subsitution
-        v.push(User.current.logged? ? User.current.id.to_s : "0") if v.delete("me")
+       # v.push(User.current.logged? ? User.current.id.to_s : "0") if v.delete("me")
         
         case operator_for field
         when "="

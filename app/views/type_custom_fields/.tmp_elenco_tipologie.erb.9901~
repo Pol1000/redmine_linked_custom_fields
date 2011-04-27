@@ -21,8 +21,7 @@
 	<% if @padre.present? %>
 	 <label>figlia di : <%= @padre.descrizione %></label>
 	 <%end%> 
-	  <br>
-  	  <br>
+	 <br>
   &nbsp;&nbsp;<label>valori per la tipologia:   </label>&nbsp;&nbsp;
    
   <% @custom_finded.each do |cust| %>
