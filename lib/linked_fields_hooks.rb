@@ -18,6 +18,28 @@ class LinkedFieldsHooks < Redmine::Hook::ViewListener
    end    
     end
 
+
+ def view_issues_show_details_bottom(params)
+   
+       @issue = params[:issue]
+      if @issue.project.module_enabled?(:linked_custom_fields)
+        @area = LinkedCustomFields.find_by_id(@issue.linked_custom_id1)
+        if (@area)
+          s="<tr><td><b>Area:</b></td><td>#{@area.valore}</td></tr>"
+          @applicativo =LinkedCustomFields.find_by_id(@issue.linked_custom_id2)
+          if (@applicativo)
+            s+="<tr><td><b>Applicativo:</b></td><td>#{@applicativo.valore}</td></tr>"
+            @modulo =LinkedCustomFields.find_by_id(@issue.linked_custom_id3)
+           if (@modulo)
+            s+="<tr><td><b>Modulo:</b></td><td>#{@modulo.valore}</td></tr>"
+           end
+          end
+         return s
+        else
+         return ""
+        end
+    end
+end
  def protect_against_forgery?
     false
    end
