@@ -69,7 +69,7 @@ module LinkedFieldsQueryPatch
     end
     
     # Wrapper for +sql_for_field+ so Questions can use a different table than Issues
-    def linked_custom_sql_for_field(field,v, db_table, db_field, is_custom_filter)
+    def linked_custom_sql_for_field(field,operator,v, db_table, db_field, is_custom_filter)
       if field == "linked_custom_fields_id" ||  field == "linked_custom_fields_id2" ||  field == "linked_custom_fields_id3"
        
         if field == "linked_custom_fields_id"
