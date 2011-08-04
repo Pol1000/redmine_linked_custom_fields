@@ -10,9 +10,9 @@ module LinkedFieldsQueryPatch
     base.class_eval do
       unloadable # Send unloadable so it will not be unloaded in development
 
-      base.add_available_column(QueryColumn.new(:linked_custom_id1))
-      base.add_available_column(QueryColumn.new(:linked_custom_id2))
-      base.add_available_column(QueryColumn.new(:linked_custom_id3))
+      base.add_available_column(QueryColumn.new(:linked_custom_id1, :sortable => "#{Issue.table_name}.linked_custom_id1", :groupable => true))
+      base.add_available_column(QueryColumn.new(:linked_custom_id2, :sortable => "#{Issue.table_name}.linked_custom_id2", :groupable => true))
+      base.add_available_column(QueryColumn.new(:linked_custom_id3, :sortable => "#{Issue.table_name}.linked_custom_id3", :groupable => true))
 
       
       alias_method :available_filters_before_linked_custom, :available_filters
