@@ -157,7 +157,7 @@ module LinkedFieldsQueryPatch
         return sql
         
       else
-        return sql_for_field_before_linked_custom(field, v, db_table, db_field, is_custom_filter)
+        return sql_for_field_before_linked_custom(field,operator, v, db_table, db_field, is_custom_filter)
       end
       
     end

@@ -1,8 +1,3 @@
  <% if @filtered_padre.present? %>
- <p>
-  <label><%= l(:label_parent) %></label>
-   <select id="custom_figlia_di" name="custom[figlia_di]">
-     <option value=""><%=l(:label_nobody)%></option> + <%= options_from_collection_for_select(@filtered_padre, :id, :valore, @son_of && @son_of.id) %>
-  </select>
-</p>
+     <option value=""><%=l(:label_nobody)%></option>  <%= options_from_collection_for_select(@filtered_padre, :id, :valore, @son_of && @son_of.id) %>
 <% end %>
