@@ -9,7 +9,10 @@ module LinkedFieldsQueryPatch
     # Same as typing in the class 
     base.class_eval do
       unloadable # Send unloadable so it will not be unloaded in development
-      base.add_available_column(QueryColumn.new(:field_linked_custom_id1))
+
+      base.add_available_column(QueryColumn.new(:linked_custom_id1))
+      base.add_available_column(QueryColumn.new(:linked_custom_id2))
+      base.add_available_column(QueryColumn.new(:linked_custom_id3))
 
       
       alias_method :available_filters_before_linked_custom, :available_filters
@@ -67,6 +70,9 @@ module LinkedFieldsQueryPatch
       
       return @available_filters.merge(linked_filters)
     end
+    
+
+    
     
     # Wrapper for +sql_for_field+ so Questions can use a different table than Issues
     def linked_custom_sql_for_field(field,operator,v, db_table, db_field, is_custom_filter)
