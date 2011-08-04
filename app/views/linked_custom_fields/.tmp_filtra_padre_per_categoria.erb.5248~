@@ -1,3 +1,0 @@
- <% if @filtered_padre.present? %>
-     <option value=""><%=l(:label_nobody)%></option>  <%= options_from_collection_for_select(@filtered_padre, :id, :valore, @son_of && @son_of.id) %>
-<% end %>
