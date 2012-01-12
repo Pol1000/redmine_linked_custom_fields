@@ -72,8 +72,16 @@ end
 
 
   def gestione
+    @project = Project.find(params[:id] || params[:project_id])
+     if User.current.allowed_to?(:edit_linked_custom_fields,@project)
      respond_to do |format|
         format.html { render :template => 'linked_custom_fields/elenco_valori', :layout => !request.xhr? }
+   end
+   else
+     respond_to do |format|
+        format.html { render :template => 'linked_custom_fields/not_allowed', :layout => !request.xhr? }
+    end
+
    end
  end
   end

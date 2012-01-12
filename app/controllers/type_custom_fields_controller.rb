@@ -48,8 +48,15 @@ class TypeCustomFieldsController < ApplicationController
 
 
   def gestione
+    @project = Project.find(params[:id] || params[:project_id])
+    if User.current.allowed_to?(:edit_custom_type,@project)
      respond_to do |format|
         format.html { render :template => 'type_custom_fields/elenco_tipologie', :layout => !request.xhr? }
+   end
+ else
+     respond_to do |format|
+        format.html { render :template => 'type_custom_fields/not_allowed', :layout => !request.xhr? }
+    end
    end
   end
  
