@@ -84,6 +84,24 @@ end
   
   
   
+ def helper_issues_show_detail_after_setting(context = {})
+   
+    detail    = context[:detail]
+    label     = context[:detail].prop_key
+    value     = context[:detail].value
+    old_value = context[:detail].old_value
+
+    if (label == "linked_custom_id1") ||(label == "linked_custom_id2") || (label == "linked_custom_id3")
+      
+       @custom = LinkedCustomFields.find_by_id(value)
+       @custom_old = LinkedCustomFields.find_by_id(old_value)
+      context[:detail].value = @custom.valore
+      if(@custom_old!= nil)
+        context[:detail].old_value = @custom_old.valore
+      end
+    end
+    
+  end
 #  def view_issues_show_description_bottom(params)
 #   
 #       @issue = params[:issue]
