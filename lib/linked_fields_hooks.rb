@@ -95,7 +95,9 @@ end
       
        @custom = LinkedCustomFields.find_by_id(value)
        @custom_old = LinkedCustomFields.find_by_id(old_value)
+       if(@custom != nil)
       context[:detail].value = @custom.valore
+      end
       if(@custom_old!= nil)
         context[:detail].old_value = @custom_old.valore
       end
